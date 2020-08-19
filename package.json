@@ -1,0 +1,14 @@
+{
+  "name": "seomyeonwiki",
+  "version": "1.0.0",
+  "description": "seomyeonwiki for discord",
+  "main": "web.js",
+  "scripts": {
+   "start": "node ./web.js"
+  },
+  "author": "JinseoMyeon",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
