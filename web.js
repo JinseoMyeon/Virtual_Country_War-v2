@@ -6,7 +6,7 @@ const bot = new Discord.Client();
 bot.login(botconfig.token);
 bot.on("ready", async () => {
   console.log(`${bot.user.username} 봇이 정상적으로 켜졌습니다.`);
-  let activNum = 0;
+  let activNum = 1;
   setInterval(function() { 
       if (activNum === 1) {
         bot.user.setActivity("!도움말을 입력하여 명령어 확인");
