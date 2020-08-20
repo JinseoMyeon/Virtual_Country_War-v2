@@ -73,7 +73,8 @@ bot.on("message", async message => {
             .setDescription(`${author} 유저가 전쟁신청을 진행하였습니다.\n이후 두 국가 모두 온라인 상태가 된다면 전쟁을 진행해 주십시요.`)
             .addField("전쟁대상국", `${args[0]}`, true)
             .addField("전쟁지역", `${args[1]}`, true)
-            .addField("유저이름", `${author}`, true);
+            .addField("유저이름", `${author}`, true)
+            .setTimestamp();
           user.send(waraccess);
           })
       }
@@ -122,7 +123,8 @@ bot.on("message", async message => {
           .setColor("#238195")
           .setDescription("영토획득 신청을 허가하려면 :green_square: 이모지를,\n거절하시려면 :red_square: 이모지를 선택해주세요.\n지도 반영이 완료되었다면 :map: 아이콘을 눌러주세요.")
           .addField("지역이름", `${args[0]}`, true)
-          .addField("유저이름", `${author}`, true);
+          .addField("유저이름", `${author}`, true)
+          .setTimestamp();
         user.send(landaccess).then(msg => {
           msg.react('🟩');
           delay(1000);
@@ -156,7 +158,8 @@ bot.on("message", async message => {
         .setColor("#238195")
         .setDescription("외교신청에 대한 상대 국가의 반응을 확인하고 전달해주세요.")
         .addField("대상국가", `${args[0]}`, true)
-        .addField("유저이름", `${author}`, true);
+        .addField("유저이름", `${author}`, true)
+        .setTimestamp();
       user.send(commuaccess);
     })
   }
