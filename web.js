@@ -15,7 +15,7 @@ bot.on("ready", async () => {
         bot.user.setActivity("#ㅣ규칙을 확인하여 서버 규칙 확인");
         activNum = 3;
     } else if (activNum === 3) {
-        bot.user.setActivity("문의/버그제보: 진서면#4029")
+        bot.user.setActivity("문의/버그제보: 진서면#4060")
         activNum = 1;
     }
 }, 10000);
