@@ -15,7 +15,7 @@ bot.on("ready", async () => {
         bot.user.setActivity("#ㅣ규칙을 확인하여 서버 규칙 확인");
         activNum = 3;
     } else if (activNum === 3) {
-        bot.user.setActivity("문의/버그제보: 진서면#4029")
+        bot.user.setActivity("문의/버그제보: 진서면#1863")
         activNum = 1;
     }
 }, 10000);
@@ -47,7 +47,8 @@ bot.on("message", async message => {
          .addField("!도움말", "가상국가전쟁 봇에 있는 명령어를 확인할 수 있습니다.")
          .addField("!영토획득 [지역]", "영토획득 신청을 진행할 수 있으며 관리자에게 DM이 전송됩니다.")
          .addField("!전쟁신청 [국가] [지역]", "타 국가의 영토를 뺏을 수 있는 전쟁신청이 가능합니다. 관리자가 확인 후 해당 국가의 해당 지역과 전쟁합니다.")
-         .addField("!전쟁시작 (관리자전용)", "전쟁을 시작할 수 있는 명령어입니다. 관리자만 작성 가능합니다.")
+         .addField("!수도천도 [지역]", "해당 지역으로 수도를 천도할 수 있는 명령어입니다. 총 3번만 가능하며 취소할 수 없습니다.")
+         .addField("!전쟁시작 (관리자전용)", "전쟁을 시작할 수 있는 명령어입니다. 관리자만 작성 가능합니다.");
       message.channel.send(info);
    }
   if (cmd === `${prefix}전쟁신청`) {
@@ -79,6 +80,34 @@ bot.on("message", async message => {
           })
       }
     }
+    if (cmd === `${prefix}수도천도`) {
+      if(!args.length) {
+        let movefail = new Discord.RichEmbed()
+            .setColor("#DE6449")
+            .setAuthor("가상국가전쟁 종합관리시스템", bicon)
+            .setTitle("수도천도 신청 실패")
+            .setDescription("!수도천도 [지역] 명령어를 전부 입력해주세요.");
+        message.channel.send(movefail);
+      } else {
+            let movesucceed = new Discord.RichEmbed()
+            .setColor("#238195")
+            .setAuthor("가상국가전쟁 종합관리시스템", bicon)
+            .setTitle("수도천도 신청 완료")
+            .setDescription(`**${args[0]}** 지역으로 수도천도 신청이 **정상적으로 완료**되었습니다.\n정상적으로 처리될 시 알려드리겠습니다.`);
+            message.channel.send(movesucceed);
+            client.fetchUser('391417643418255372').then((user) => {
+              let waraccess = new Discord.RichEmbed()
+              .setAuthor("가상국가전쟁 종합관리시스템", bicon)
+              .setTitle(`수도천도 신청 명령어 사용안내`)
+              .setColor("#DE6449")
+              .setDescription(`${author} 유저가 수도천도 신청을 진행하였습니다.\n확인 시 처리해 주십시요.`)
+              .addField("천도지역", `${args[0]}`, true)
+              .addField("유저이름", `${author}`, true)
+              .setTimestamp();
+            user.send(waraccess);
+            })
+        }
+      }
     if (cmd === `${prefix}영토획득`) {
       if(!args.length) {
         let landfail = new Discord.RichEmbed()
