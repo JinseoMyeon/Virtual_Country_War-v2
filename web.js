@@ -7,7 +7,7 @@ bot.login(botconfig.token);
 bot.on("ready", async () => {
   console.log(`${bot.user.username} 봇이 정상적으로 켜졌습니다.`);
   let activNum = 1;
-  setInterval(function() { 
+  setInterval(function() {
       if (activNum === 1) {
         bot.user.setActivity("!도움말을 입력하여 명령어 확인");
         activNum = 2;
@@ -122,13 +122,13 @@ bot.on("message", async message => {
         .setAuthor("가상국가전쟁 영토관리시스템", bicon)
         .setTitle("영토획득 신청 완료")
         .setDescription(`${args[0]} 지역의 영토획득 신청이 **정상적으로 완료**되었습니다.\n이후 관리자가 확인하거나 지도에 반영하면 안내하겠습니다.`);
-  
+
         let landcheck = new Discord.RichEmbed()
         .setColor("#238195")
         .setAuthor("가상국가전쟁 영토관리시스템", bicon)
         .setTitle("영토획득 확인 완료")
         .setDescription(`${args[0]} 지역의 영토획득 신청이 **관리자에 의해 확인**되었습니다.\n이후 **지도에 다음 내용이 반영** 이 메세지의 내용이 수정됩니다.`);
-  
+
         let landsuccess = new Discord.RichEmbed()
         .setColor("#238195")
         .setAuthor("가상국가전쟁 영토관리시스템", bicon)
@@ -136,7 +136,7 @@ bot.on("message", async message => {
         .setDescription(`${args[0]} 지역의 영토획득 신청이 지도에 **정식적으로 반영**되었습니다.\n아래 내용은 영토획득 신청 내역입니다.`)
         .addField(`지역명`, `${args[0]}`, true)
         .addField(`신청결과`, `정상처리`, true);
-  
+
         let landfail = new Discord.RichEmbed()
         .setColor("#238195")
         .setAuthor("가상국가전쟁 영토관리시스템", bicon)
@@ -228,7 +228,7 @@ bot.on("message", async message => {
             .then(msg => {
               msg.delete(5000)
             });
-            
+
             let win1 = 0;
             let win2 = 0;
             let win3 = 0;
@@ -253,12 +253,12 @@ bot.on("message", async message => {
             let number2 = getRandom(40, 60); // args[1]에 대한 1차 난수
             if(number1>number2) {
               numdiff = number1-number2;
-              win1 = args[0]; 
+              win1 = args[0];
             } if(number2>number1) {
-              numdiff = number2-number1; 
+              numdiff = number2-number1;
               win1 = args[1];
             }
-      
+
             let number01 = getRandom(number1-10, number1+10) // args[0]에 대한 2차 난수
             let number02 = getRandom(number2-10, number2+10) // [args[1]에 대한 2차 난수
             if(number01>number02) {
@@ -267,36 +267,36 @@ bot.on("message", async message => {
             } if(number02>number01) {
               numdiff0 = number02-number01;
               win2 = args[1]; }
-      
+
             let number001 = getRandom(number01-10, number01+10) // args[0]에 대한 3차 난수
-            let number002 = getRandom(number02-10, number02+10) // [args[1]에 대한 3차 난수 
+            let number002 = getRandom(number02-10, number02+10) // [args[1]에 대한 3차 난수
             if(number001>number002) {
               numdiff00 = number001-number002;
               win3 = args[0]; }
             if(number002>number001) {
               numdiff00 = number002-number001;
               win3 = args[1]; }
-      
+
             let number0001 = getRandom(number001-10, number001+10) // args[0]에 대한 4차 난수
             let number0002 = getRandom(number002-10, number002+10) // [args[1]에 대한 4차 난수
             if(number0001>number0002) {
               numdiff000 = number0001-number0002;
               win4 = args[0];
             } if(number0002>number0001) {
-              numdiff000 = number0002-number0001; 
+              numdiff000 = number0002-number0001;
               win4 = args[1]; }
-      
+
             let number00001 = getRandom(number0001-10, number0001+10) // args[0]에 대한 5차 난수
-            let number00002 = getRandom(number0002-10, number0002+10) // [args[1]에 대한 5차 난수 
+            let number00002 = getRandom(number0002-10, number0002+10) // [args[1]에 대한 5차 난수
             if(number00001>number00002) {
               numdiff0000 = number00001-number00002;
               win5 = args[0];
             } if(number00002>number00001) {
               numdiff0000 = number00002-number00001;
               win5 = args[1]; }
-      
+
             let number000001 = getRandom(number00001-10, number00001+10) // args[0]에 대한 6차 난수
-            let number000002 = getRandom(number00002-10, number00002+10) // [args[1]에 대한 6차 난수 
+            let number000002 = getRandom(number00002-10, number00002+10) // [args[1]에 대한 6차 난수
             if(number000001 > 100) number000001 = 100; if(number000002 > 100) number000002 = 100;
             if(number000001 < 0) number000001 = 0; if(number000002 < 0) number000002 = 0;
             if(number000001>number000002) {
@@ -305,31 +305,31 @@ bot.on("message", async message => {
             } if(number000002>number000001) {
               numdiff00000 = number000002-number000001;
               win6 = args[1]; }
-      
+
             let number0000001 = getRandom(number000001-10, number000001+10) // args[0]에 대한 7차 난수
-            let number0000002 = getRandom(number000002-10, number000002+10) // [args[1]에 대한 7차 난수 
+            let number0000002 = getRandom(number000002-10, number000002+10) // [args[1]에 대한 7차 난수
             if(number0000001 > 100) number0000001 = 100; if(number0000002 > 100) number0000002 = 100;
             if(number0000001 < 0) number0000001 = 0; if(number0000002 < 0) number0000002 = 0;
             if(number0000001>number0000002) {
             numdiff000000 = number0000001-number0000002;
-            win7 = args[0]; 
+            win7 = args[0];
             } if(number0000002>number0000001) {
             numdiff000000 = number0000002-number0000001;
             win7 = args[1]; }
-      
+
             let number00000001 = getRandom(number0000001-10, number0000001+10) // args[0]에 대한 8차 난수
-            let number00000002 = getRandom(number0000002-10, number0000002+10) // [args[1]에 대한 8차 난수 
+            let number00000002 = getRandom(number0000002-10, number0000002+10) // [args[1]에 대한 8차 난수
             if(number00000001 > 100) number00000001 = 100; if(number00000002 > 100) number00000002 = 100;
             if(number00000001 < 0) number00000001 = 0; if(number00000002 < 0) number00000002 = 0;
             if(number00000001>number00000002) {
             numdiff0000000 = number00000001-number00000002;
-            win8 = args[0]; 
+            win8 = args[0];
             } if(number00000002>number00000001) {
             numdiff0000000 = number00000002-number00000001;
             win8 = args[1]; }
-      
+
             let number000000001 = getRandom(number00000001-10, number00000001+10) // args[0]에 대한 9차 난수
-            let number000000002 = getRandom(number00000002-10, number00000002+10) // [args[1]에 대한 9차 난수 
+            let number000000002 = getRandom(number00000002-10, number00000002+10) // [args[1]에 대한 9차 난수
             if(number000000001 > 100) number000000001 = 100; if(number000000002 > 100) number000000002 = 100;
             if(number000000001 < 0) number000000001 = 0; if(number000000002 < 0) number000000002 = 0;
             if(number000000001>number000000002) {
@@ -338,20 +338,20 @@ bot.on("message", async message => {
             } if(number000000002>number000000001) {
             numdiff00000000 = number000000002-number000000001;
             win9 = args[1]; }
-      
+
             let number0000000001 = getRandom(number000000001-10, number000000001+10) // args[0]에 대한 10차 난수
-            let number0000000002 = getRandom(number000000002-10, number000000002+10) // [args[1]에 대한 10차 난수 
+            let number0000000002 = getRandom(number000000002-10, number000000002+10) // [args[1]에 대한 10차 난수
             if(number0000000001 > 100) number0000000001 = 100; if(number0000000002 > 100) number0000000002 = 100;
             if(number0000000001 < 0) number0000000001 = 0; if(number0000000002 < 0) number0000000002 = 0;
             if(number0000000001>number0000000002) {
               numdiff000000000 = number0000000001-number0000000002;
-              win10 = args[0]; 
+              win10 = args[0];
             } if(number0000000002>number0000000001) {
               numdiff000000000 = number0000000002-number0000000001;
               win10 = args[1]; }
-      
+
             setTimeout(function() {
-             
+
               let war1 = new Discord.RichEmbed()
               .setColor("#238195")
               .setAuthor("가상국가전쟁 전쟁관리시스템", bicon)
@@ -366,7 +366,7 @@ bot.on("message", async message => {
               .addField(`진행 횟수`, `1/10(1회차)`, true)
               .setTimestamp()
               .setFooter("3초마다 업데이트됩니다. 마지막 수정", bicon);
-      
+
               let war2 = new Discord.RichEmbed()
               .setColor("#238195")
               .setAuthor("가상국가전쟁 전쟁관리시스템", bicon)
@@ -381,7 +381,7 @@ bot.on("message", async message => {
               .addField(`진행 횟수`, `2/10(2회차)`, true)
               .setTimestamp()
               .setFooter("3초마다 업데이트됩니다. 마지막 수정", bicon);
-      
+
               let war3 = new Discord.RichEmbed()
               .setColor("#238195")
               .setAuthor("가상국가전쟁 전쟁관리시스템", bicon)
@@ -500,7 +500,7 @@ bot.on("message", async message => {
               .addField(`전쟁 지역`, `${args[2]}`, true)
               .addField(`진행 횟수`, `10/10(10회차)`, true)
               .setTimestamp()
-              .setFooter("3초마다 업데이트됩니다. 마지막 수정", bicon); 
+              .setFooter("3초마다 업데이트됩니다. 마지막 수정", bicon);
 
               let warresult = new Discord.RichEmbed()
               .setColor("#238195")
@@ -514,8 +514,8 @@ bot.on("message", async message => {
               .addField(`전쟁 결과`, `**${win10}** 승리`, true)
               .addField(`전쟁 지역`, `${args[2]}`, true);
 
-              message.channel.send(war1).catch().then(msg => { 
-              delay(3000); 
+              message.channel.send(war1).catch().then(msg => {
+              delay(3000);
               msg.edit(war2).catch().then(msg => {
                 delay(3000);
                 msg.edit(war3).catch().then(msg => {
@@ -546,9 +546,7 @@ bot.on("message", async message => {
               })
             })
               }, 3000);
-              
+
           }
         }
       },)
-
-    
